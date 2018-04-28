@@ -105,5 +105,12 @@ PushViewController *push = [PushViewController new];
 
 }];
 ```
+
+13. 底部弹框
+```
+[[WKCBottomHUD sharedInstance] showWithText:@"你点击的是底部弹框" duration:2.0f];
+```
+  ![Alt text](https://github.com/WeiKunChao/WKCKit/raw/master/screenShort/7.gif)
+    
   
  
