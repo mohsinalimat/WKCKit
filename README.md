@@ -18,6 +18,11 @@ Some base on Kit
  /**navigation高度*/
  CGFloat heightOfNavigation = [WKCUIUtil heightOfNavigation];
  ```
+  控件是否显示在屏幕上
+  ```
+  /**是否显示在视图*/
+  [self.button isDispalyedInScreen];
+```
  2. 按钮
  ```
  /**扩大按钮的点击区域*/

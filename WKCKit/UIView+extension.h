@@ -30,6 +30,8 @@
 @property (nonatomic, assign) CGFloat wkc_width;
 /**高*/
 @property (nonatomic, assign) CGFloat wkc_height;
+/**视图是否显示在屏幕*/
+@property (nonatomic, assign, readonly) BOOL isDispalyedInScreen;
 /**设置frame*/
 - (void)setWkc_frame:(NSArray <NSNumber *>*)frame;
 /**设置bounds*/

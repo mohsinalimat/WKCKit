@@ -149,6 +149,36 @@ static const void *SWPKeyboardDismissTimeKey = "SWPKeyboardDismissTimeKey";
     return self.frame.size.height;
 }
 
+- (BOOL)isDispalyedInScreen {
+    return [self isDispalyedInScreen];
+}
+
+- (BOOL)displayedInScreen
+{
+    if (self == nil) {
+        return FALSE;
+    }
+    CGRect screenRect = [UIScreen mainScreen].bounds;
+    CGRect rect = [self convertRect:self.frame fromView:nil];
+    if (CGRectIsEmpty(rect) || CGRectIsNull(rect)) {
+        return FALSE;
+    }
+    if (self.hidden) {
+        return FALSE;
+    }
+    if (self.superview == nil) {
+        return FALSE;
+    }
+    if (CGSizeEqualToSize(rect.size, CGSizeZero)) {
+        return  FALSE;
+    }
+    CGRect intersectionRect = CGRectIntersection(rect, screenRect);
+    if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect)) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
 + (NSString *)cellReuseIdentifier {
     return NSStringFromClass([self class]);
 }
