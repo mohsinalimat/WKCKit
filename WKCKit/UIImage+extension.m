@@ -24,7 +24,6 @@
     }else {
         return (CGFloat)CGImageGetHeight(self.CGImage) / 2;
     }
-    return CGImageGetHeight(self.CGImage);
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color {
