@@ -11,10 +11,19 @@
 @implementation UIImage (extension)
 
 - (CGFloat)wkc_width {
-    return CGImageGetWidth(self.CGImage);
+    if ([UIImage isPhoneX] || [UIImage isPhone6p]) {
+        return (CGFloat)CGImageGetWidth(self.CGImage) / 3;
+    }else {
+        return (CGFloat)CGImageGetWidth(self.CGImage) / 2;
+    }
 }
 
 - (CGFloat)wkc_height {
+    if ([UIImage isPhoneX] || [UIImage isPhone6p]) {
+        return (CGFloat)CGImageGetHeight(self.CGImage) / 3;
+    }else {
+        return (CGFloat)CGImageGetHeight(self.CGImage) / 2;
+    }
     return CGImageGetHeight(self.CGImage);
 }
 
@@ -329,5 +338,13 @@
     
     //return image
     return image;
+}
+
++ (BOOL)isPhone6p {
+    return [UIScreen mainScreen].bounds.size.height == 736;
+}
+
++ (BOOL)isPhoneX {
+    return [UIScreen mainScreen].bounds.size.height == 812;
 }
 @end
