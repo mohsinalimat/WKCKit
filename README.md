@@ -113,7 +113,7 @@ Some base on Kit
 ```
  UIViewController *controller = self.view.viewController;
 ```
- 5. 阴影和圆角
+5. 阴影和圆角
  同时添加阴影和圆角
  ```
  [self.imageView shadowWithCornerRadius:8 shadowColor:[UIColor blueColor] shadowOffSet:CGSizeMake(0, 12) shadowOpacity:0.2 shadowBlur:24];
@@ -131,7 +131,7 @@ Some base on Kit
  ```
  UIImage *screenShort = [self.imageView screenshot];
  ```
- 9. 渐变色
+8. 渐变色
  添加渐变色 colors数组 start开始位置 end结束位置,x代表横向,y代表纵向 location代表开始改变的位置
  ```
  [self.imageView gradientWithColors:@[[UIColor blackColor],[UIColor whiteColor]] startPoint:CGPointZero endPoint:CGPointMake(1, 0) changeLocation:0.4];
@@ -139,18 +139,18 @@ Some base on Kit
   ![Alt text](https://github.com/WeiKunChao/WKCKit/raw/master/screenShort/6.png)
 
 ### UINavigationItem+extension
-自定义导航栏按钮
+自定义导航栏按钮间距
   ```
   self.navigationItem.leftMargin = 8;
   self.navigationItem.rightMargin = 9;
   ```
   ### UINavigationController+Transition
-  自定义转场动画  翻页、屏幕内翻转
+1. 自定义转场动画  翻页、屏幕内翻转
 ```
 PushViewController *push = [PushViewController new];
 [self.navigationController wkc_pushViewController:push withTransition:UIViewAnimationTransitionFlipFromRight];
 ```
-返回到指定控制器
+2. 返回到指定控制器
 ```
 [self.navigationController popToDesignationController:[PushViewController class] animated:YES compeletionHandle:^(UIViewController *DesignatedViewController) {
 
