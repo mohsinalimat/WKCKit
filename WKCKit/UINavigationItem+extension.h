@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 FOUNDATION_EXPORT double UINavigationItem_MarginVersionNumber;
 FOUNDATION_EXPORT const unsigned char UINavigationItem_MarginVersionString[];
 

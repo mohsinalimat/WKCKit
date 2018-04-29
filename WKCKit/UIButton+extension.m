@@ -59,13 +59,13 @@ const void  *VERB_KEY = "verbKey";
             break;
             
         case WKCImagePositionTop:
-            self.imageEdgeInsets = UIEdgeInsetsMake(0, imageOffsetX, imageOffsetY, -imageOffsetX);
-            self.titleEdgeInsets = UIEdgeInsetsMake(imageHeight, -labelOffsetX, -labelOffsetY, labelOffsetX);
+            self.imageEdgeInsets = UIEdgeInsetsMake(-imageOffsetY, imageOffsetX, imageOffsetY, -imageOffsetX);
+            self.titleEdgeInsets = UIEdgeInsetsMake(labelOffsetY, -labelOffsetX, -labelOffsetY, labelOffsetX);
             break;
             
         case WKCImagePositionBottom:
-            self.imageEdgeInsets = UIEdgeInsetsMake(labelHeight, imageOffsetX, -imageOffsetY, -imageOffsetX);
-            self.titleEdgeInsets = UIEdgeInsetsMake(0, -labelOffsetX, labelOffsetY, labelOffsetX);
+            self.imageEdgeInsets = UIEdgeInsetsMake(imageOffsetY, imageOffsetX, -imageOffsetY, -imageOffsetX);
+            self.titleEdgeInsets = UIEdgeInsetsMake(-labelOffsetY, -labelOffsetX, labelOffsetY, labelOffsetX);
             break;
             
         default:

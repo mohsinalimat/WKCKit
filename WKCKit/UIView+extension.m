@@ -9,7 +9,7 @@
 #import "UIView+extension.h"
 #import <objc/runtime.h>
 static const void *SWPKeyboardDismissTimeKey = "SWPKeyboardDismissTimeKey";
-
+BOOL pan = NO;
 @implementation UIView (extension)
 
 - (void)setKeyboredDismissBlock:(void (^)(CGFloat))keyboredDismissBlock {
@@ -268,6 +268,17 @@ static const void *SWPKeyboardDismissTimeKey = "SWPKeyboardDismissTimeKey";
     return screenshot;
 }
 
+- (void)setIsCanPan:(BOOL)isCanPan {
+    if (isCanPan) {
+        [self addPanAnimation];
+    }
+     pan = isCanPan;
+}
+
+- (BOOL)isCanPan {
+    return pan;
+}
+
 - (id)subViewWithClass:(Class)clazz {
     for (id subView in self.subviews) {
         if ([subView isKindOfClass:clazz]) {
@@ -289,19 +300,17 @@ static const void *SWPKeyboardDismissTimeKey = "SWPKeyboardDismissTimeKey";
     }
 }
 
-- (UIView *)getFirstResponder {
+- (UIView *)firstResponder {
     if (([self isKindOfClass:[UITextField class]] || [self isKindOfClass:[UITextView class]])
         && (self.isFirstResponder)) {
         return self;
     }
-    
     for (UIView *v in self.subviews) {
-        UIView *fv = [v getFirstResponder];
+        UIView *fv = v.firstResponder;
         if (fv) {
             return fv;
         }
     }
-    
     return nil;
 }
 

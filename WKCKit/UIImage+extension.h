@@ -58,6 +58,4 @@
                             borderWidth:(CGFloat)borderWidth
                             borderColor:(UIColor *)borderColor
                                    size:(CGSize)size;
-/**画一张阴影图*/
-- (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur;
 @end

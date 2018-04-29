@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UINavigationController (Transition)
+
 /**自定义push动画 None无效果,CurlUp向上翻页,CurlDown向下翻页,FlipFromLeft相离翻页,FlipFromRight向外翻页*/
 - (void)wkc_pushViewController:(UIViewController *)controller withTransition:(UIViewAnimationTransition)transition;
 /**自定义pop动画 None无效果,CurlUp向上翻页,CurlDown向下翻页,FlipFromLeft相离翻页,FlipFromRight向外翻页*/

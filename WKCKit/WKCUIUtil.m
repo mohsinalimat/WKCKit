@@ -8,24 +8,44 @@
 
 #import "WKCUIUtil.h"
 
+static WKCUIUtil *_instance = nil;
 @implementation WKCUIUtil
-+ (BOOL)isPhone4Or5 {
-    return [UIScreen mainScreen].bounds.size.height == 480 ||  [UIScreen mainScreen].bounds.size.height == 568;
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!_instance) {
+            _instance = [super allocWithZone:zone];
+        }
+    });
+    return _instance;
 }
 
-+ (BOOL)isPhone6 {
-    return [UIScreen mainScreen].bounds.size.height == 667;
+- (WKCUIUtil *)sharedInstance {
+    return [WKCUIUtil sharedInstance];
 }
 
-+ (BOOL)isPhone6p {
-    return [UIScreen mainScreen].bounds.size.height == 736;
++ (instancetype)sharedInstance {
+    return [[self alloc] init];
 }
 
-+ (BOOL)isPhoneX {
+- (BOOL)isPhone4Or5 {
+      return [UIScreen mainScreen].bounds.size.height == 480 ||  [UIScreen mainScreen].bounds.size.height == 568;
+}
+
+- (BOOL)isPhone6 {
+   return [UIScreen mainScreen].bounds.size.height == 667;
+}
+
+- (BOOL)isPhone6p {
+   return [UIScreen mainScreen].bounds.size.height == 736;
+}
+
+- (BOOL)isPhoneX {
     return [UIScreen mainScreen].bounds.size.height == 812;
 }
 
-+ (BOOL)isiPad {
+- (BOOL)isiPad {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         return YES;
     } else {
@@ -33,43 +53,39 @@
     }
 }
 
-+ (CGFloat)iphoneXTopSpace
-{
-    if ([WKCUIUtil isPhoneX]) {
+- (CGFloat)iphoneXTopSpace {
+    if (self.isPhoneX) {
         return 44;
     }
     return 0;
 }
 
-+ (CGFloat)iphoneXBottomSpace
-{
-    if ([WKCUIUtil isPhoneX]) {
+- (CGFloat)iphoneXBottomSpace {
+    if (self.isPhoneX) {
         return 34;
+    }else {
+        return 0;
     }
-    return 0;
 }
 
-+ (CGFloat)heightOfNavigationBar
-{
+- (CGFloat)heightOfNavigationBar {
     return 44.0f;
 }
 
-+ (CGFloat)heightOfStatusBar
-{
-    if ([WKCUIUtil isPhoneX]) {
+- (CGFloat)heightOfStatusBar {
+    if (self.isPhoneX) {
         return 44.0f;
-    } else {
-        return 20.0f;
+    }else {
+        return 20.f;
     }
 }
 
-+ (CGFloat)heightOfNavigation
-{
-    return [self heightOfStatusBar] + [self heightOfNavigationBar];
+- (CGFloat)heightOfNavigation {
+    return self.heightOfStatusBar + self.heightOfNavigationBar;
 }
 
-+ (CGFloat)heightOfTabBar
-{
-    return 49.0f + [self iphoneXBottomSpace];
+- (CGFloat)heightOfTabBar {
+    return 49.0f + self.iphoneXBottomSpace;
 }
+
 @end
