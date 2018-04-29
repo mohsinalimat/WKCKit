@@ -85,9 +85,15 @@ Some base on Kit
   /**根据颜色生成一张图片*/
   UIImage *colorImage = [UIImage imageWithColor:[UIColor blueColor]];
   self.imageView.image = colorImage;
+```
+![Alt text](https://github.com/WeiKunChao/WKCKit/raw/master/screenShort/5.png)
+
+  图片的宽高
   ```
-  ![Alt text](https://github.com/WeiKunChao/WKCKit/raw/master/screenShort/5.png)
-  
+  @property (nonatomic, assign, readonly) CGFloat wkc_width;
+  @property (nonatomic, assign, readonly) CGFloat wkc_height;
+```
+
   11. 导航栏间距
   ```
   /**导航栏间距*/

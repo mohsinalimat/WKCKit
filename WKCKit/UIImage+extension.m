@@ -10,6 +10,14 @@
 
 @implementation UIImage (extension)
 
+- (CGFloat)wkc_width {
+    return CGImageGetWidth(self.CGImage);
+}
+
+- (CGFloat)wkc_height {
+    return CGImageGetHeight(self.CGImage);
+}
+
 + (UIImage *)imageWithColor:(UIColor *)color {
     return [self imageWithColor:color size:CGSizeMake(1,1)];
 }

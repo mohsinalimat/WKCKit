@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (extension)
+/**图片的宽高*/
+@property (nonatomic, assign, readonly) CGFloat wkc_width;
+@property (nonatomic, assign, readonly) CGFloat wkc_height;
+
 /**
  * 通过颜色画一张图
  * color - 颜色
